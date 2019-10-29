@@ -1,5 +1,5 @@
 const app = new Vue({
-    el: "#app",
+    el: "#charactersTable",
     data: {
       editCharacter: null,
       characters: [],
@@ -23,6 +23,15 @@ const app = new Vue({
         })
         .then(() => {
           this.editCharacter = null;
+        })
+      },
+      createCharacter() {
+        fetch("http://localhost:3000/v1/characters/new", {
+          body: JSON.stringify(character),
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
         })
       }
     },

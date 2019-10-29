@@ -9,7 +9,7 @@
 <body>
   <div class="container">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Élisson</a>
+      <a class="navbar-brand" href="index.html">Élisson</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -17,7 +17,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Link</a>
@@ -57,14 +57,86 @@
           <th>Options</th>
         </tr>
       </thead>
-      <tbody id="app">
+      <tbody id="charactersTable">
 
       </tbody>
     </table>
+
+    <form id="charForm" @submit="checkForm" method="post">
+      <div v-if="errors.length">
+        <div class="alert alert-danger" role="alert">
+          <p>Please correct the following error(s):</p>
+          <hr>
+          <p class="mb-0" v-for="error in errors">{{ error }}</p>
+        </div>
+      </div>
+      <div class="form-row align-items-center">
+        <div class="col-auto">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Name</div>
+            </div>
+            <input type="text" class="form-control" id="name" v-model="name">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Strength</div>
+            </div>
+            <input type="number" class="form-control" id="strength" v-model="strength">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Dexterity</div>
+            </div>
+            <input type="number" class="form-control" id="dexterity" v-model="dexterity">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Constitution</div>
+            </div>
+            <input type="number" class="form-control" id="constitution" v-model="constitution">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Intelligence</div>
+            </div>
+            <input type="number" class="form-control" id="intelligence" v-model="intelligence">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Wisdom</div>
+            </div>
+            <input type="number" class="form-control" id="wisdom" v-model="wisdom">
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <div class="input-group mb-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">Charisma</div>
+            </div>
+            <input type="number" class="form-control" id="charisma" v-model="charisma">
+          </div>
+        </div>
+        <div class="col-auto">
+          <button type="submit" class="btn btn-primary mb-2" value="Submit">Create</button>
+        </div>
+      </div>
+    </form>
   </div>
   <script src="js/jquery-3.4.1.js"> </script>
   <script src="js/bootstrap.js"> </script>
   <script src="js/vue.js"> </script>
-  <script src="js/app.js"> </script>
+  <script src="js/charactersTable.js"> </script>
+  <script src="js/charForm.js"> </script>
 </body>
 </html>
